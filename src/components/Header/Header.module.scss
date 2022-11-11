@@ -1,0 +1,37 @@
+a{
+  text-decoration: none;
+  color: gray;
+}
+a:hover{
+  color: gray;
+}
+ul{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+li{
+  list-style-type: none;
+}
+
+
+.header {
+    position: relative;
+    background-color: white;
+    color: #fff;
+    .header__personal li{
+      margin-left: 20px;
+    }
+    .header__menu{
+      display: flex;
+      justify-content: start;
+      text-align: center;
+      .menu{
+        justify-content: center;
+      li{
+        margin-right: 20px;
+      }
+    }
+    }
+  }
+  
