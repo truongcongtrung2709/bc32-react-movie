@@ -9,9 +9,9 @@
 a{
   text-decoration: none;
 }
-ul{
-  @include adjust(flex, center, center)
-}
+// ul{
+//   @include adjust(flex, center, center)
+// }
 li{
   list-style-type: none;
 }
@@ -21,9 +21,8 @@ li{
 .header {
     &__personal
     {
-      ul{
-        width: 1000px;
-        margin: 0 auto;
+      &__menu{
+        @include adjust(flex, end, center);
         li{
         margin-left: 40px;
         a{
@@ -39,7 +38,7 @@ li{
       .header__tickets__menu{
         display: flex;
         position: relative;
-        width: 1000px;
+        width: 1200px;
         margin: 0 auto;
         .logo{
           transition: 0.5s linear;
@@ -53,8 +52,10 @@ li{
           position: absolute;
           top: 40%;
           left: 15%;
+         ul{
+          @include adjust(flex, end, center);
           li{
-            margin-left: 80px;
+            margin-left: 150px;
 
             a{
               color:black;
@@ -74,6 +75,7 @@ li{
               transition: width .3s linear;
             }
           }
+        }
         }
       }
     }
