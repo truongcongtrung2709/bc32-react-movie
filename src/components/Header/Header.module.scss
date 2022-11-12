@@ -1,37 +1,82 @@
+@mixin adjust($display, $justify, $align )
+{
+  display: $display;
+  justify-content: $justify;
+  text-align: $align;
+
+}
+
 a{
   text-decoration: none;
-  color: gray;
-}
-a:hover{
-  color: gray;
 }
 ul{
-  display: flex;
-  justify-content: center;
-  text-align: center;
+  @include adjust(flex, center, center)
 }
 li{
   list-style-type: none;
 }
 
 
+
 .header {
-    position: relative;
-    background-color: white;
-    color: #fff;
-    .header__personal li{
-      margin-left: 20px;
-    }
-    .header__menu{
-      display: flex;
-      justify-content: start;
-      text-align: center;
-      .menu{
-        justify-content: center;
-      li{
-        margin-right: 20px;
+    &__personal
+    {
+      ul{
+        width: 1000px;
+        margin: 0 auto;
+        li{
+        margin-left: 40px;
+        a{
+          color:black
+        }
+          }
       }
     }
+    &__tickets__background{
+      background-color: white;
+
+      
+      .header__tickets__menu{
+        display: flex;
+        position: relative;
+        width: 1000px;
+        margin: 0 auto;
+        .logo{
+          transition: 0.5s linear;
+        }
+        .logo:hover{
+          opacity: 0.5;
+          transition: 0.5s linear;
+        }
+        
+        &__option{
+          position: absolute;
+          top: 40%;
+          left: 15%;
+          li{
+            margin-left: 80px;
+
+            a{
+              color:black;
+              font-weight: bold;
+              &::after{
+                content: '';
+                display: block;
+                width: 0;
+                height: 2px;
+                background: black;
+                transition: width .3s linear;
+              }
+            }
+            &:hover a::after{
+              width:70%;
+              margin: 0 auto;
+              transition: width .3s linear;
+            }
+          }
+        }
+      }
     }
-  }
+}
+  
   

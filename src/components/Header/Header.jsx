@@ -6,39 +6,42 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <div className={styles.header__personal}>
-        <ul className="list__personal">
-        <li><a href="">
+        <ul className={styles.header__personal__menu}>
+        <li><Link to="/">
         <i className="fa-solid fa-people-group"></i>TUYỂN DỤNG
-          </a>
+          </Link>
           </li>
-        <li><a href="">
+        <li><Link href="/">
           <i className="fa-regular fa-newspaper"></i>TIN MỚI & ƯU ĐÃI 
-          </a>
+          </Link>
           </li>
-        <li><a href="">
+        <li><Link href="/">
           <i className="fa-solid fa-ticket"></i>VÉ CỦA TÔI
-          </a>
+          </Link>
           </li>
         <li>
-          <a href=""><i className="fa-solid fa-user"></i></a>
+          <Link href="/"><i className="fa-solid fa-user"></i></Link>
           <Link to="/login">ĐĂNG NHẬP/</Link>
           <Link to="/signup">ĐĂNG KÝ</Link>
         </li>
         </ul>
       </div>
-      <div className={styles.header__menu} >
-      <div><a href="">
-          <img src={logo} alt="logo" width={"120px"}  />
+      <div className={styles.header__tickets__background}>
+
+      <div className={styles.header__tickets__menu}>
+         
+          <div className={styles.logo}><a href="/">
+          <img src={logo} alt="logo" width={"200px"}/>
           </a></div>
-          <div className={styles.menu}>
+          <div className={styles.header__tickets__menu__option}>
         <ul>
-          <li><a href="">PHIM</a></li>
-          <li><a href="">RẠP TCT</a></li>
-          <li><a href="">THÀNH VIÊN</a></li>
-          <li><a href="">CULTUREPLEX</a></li>
+          <li className={styles.option__item}><a href="/">PHIM</a></li>
+          <li className={styles.option__item}><a href="/">RẠP TCT</a></li>
+          <li className={styles.option__item}><a href="/">THÀNH VIÊN</a></li>
+          <li className={styles.option__item}><a href="/">CULTUREPLEX</a></li>
         </ul>
         </div>
-
+        </div>
       </div>
       <div>     
       </div>
