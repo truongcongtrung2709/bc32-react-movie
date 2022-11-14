@@ -1,0 +1,28 @@
+Button{
+  background-color: red;
+}
+
+.movie__tittle{
+  text-align: center;
+  background-color: yellow;
+  margin-top: 50px;
+}
+.card{
+  border: none;
+  position: relative;
+  margin:10px;
+  .overlay{
+    display: none;
+  }
+  &:hover .overlay{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+.item__title{
+  color: white;
+  font-weight: bold;
+}
+  }
+}
