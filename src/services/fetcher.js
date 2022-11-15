@@ -22,6 +22,22 @@ fetcher.interceptors.response.use(
         // .content: format của cybersoft
         return Promise.reject(error.response.data.content);
     }
+);
+
+fetcher.interceptors.request.use(
+    (config) =>{
+        // Thêm Key Authorization vào header config (nếu có)
+        const {accessToken} = JSON.parse(localStorage.getItem("user")) || {};
+        if(accessToken){
+
+           
+           config.headers.Authorization = `Bearer ${accessToken}`
+        }
+        return config;
+    },
+    (error) =>{
+        return Promise.reject(error);
+    }
 )
 export default fetcher;
    

@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { signin } from "../../../slides/authSlide";
-import { Navigate } from "react-router-dom";
+import { Navigate, useSearchParams } from "react-router-dom";
 
 /**
 object đăng nhập:
@@ -16,6 +16,11 @@ const Signin = () => {
     const dispatch = useDispatch();
     const {user, loading, error} = useSelector((state) => state.auth)
 
+    // useSearchParams: trả về 1 array gồm 2 giá trị
+    // - searchParams: chứa các giá trị query params trên url
+    // - setSearchParams: là một hàm để cập nhật các giá trị search params trên url
+    const [searchParams, setSearchParams ]= useSearchParams()
+    console.log(searchParams.get("redirectUrl"));
 
     const {register, handleSubmit, formState } = useForm({
         defaultValues:{taiKhoan: "", matKhau: ""},
@@ -35,8 +40,9 @@ const Signin = () => {
         dispatch(signin(values))
     }
     if(user){
-       // Có thông tin user => đã đăng nhập => redirect về home
-        return <Navigate to="/" replace/>
+        const redirectUrl = searchParams.get("redirectUrl")
+       // Có thông tin user => đã đăng nhập => redirect redirectUrl hoặc Home
+        return <Navigate to={redirectUrl || "/"} replace/>
     }
 
   return <div>

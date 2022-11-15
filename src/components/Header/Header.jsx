@@ -21,7 +21,7 @@ const Header = () => {
           </li>
         <li>
           <Link href="/"><i className="fa-solid fa-user"></i></Link>
-          <Link to="/login">ĐĂNG NHẬP/</Link>
+          <Link to="/signin">ĐĂNG NHẬP/</Link>
           <Link to="/signup">ĐĂNG KÝ</Link>
         </li>
         </ul>
