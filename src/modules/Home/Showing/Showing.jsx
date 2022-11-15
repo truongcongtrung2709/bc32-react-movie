@@ -5,7 +5,6 @@ import  Carousel  from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import styles from "./showing.module.scss"
 import { Card,Button } from "react-bootstrap";
-import { styled  } from "@emotion/styled/macro";
 const Showing = () => {
   const navigate = useNavigate();
 
@@ -65,7 +64,7 @@ const Showing = () => {
             Chi tiết
           </Button>
           <Button variant="danger" >
-          <i class="fa-solid fa-ticket"></i> Mua Vé
+          <i className="fa-solid fa-ticket"></i> Mua Vé
           </Button>
           </Card.ImgOverlay>
         </Card>

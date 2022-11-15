@@ -61,7 +61,7 @@ const Signin = () => {
         </div>
         <div>
             <label>Mật Khẩu:</label>
-            <input {...register("matKhau",
+            <input type="password" {...register("matKhau",
             {required:{
                 value:true,
                 message: "Mật Khẩu không được để trống"},
