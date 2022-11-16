@@ -1,8 +1,35 @@
+import { isFulfilled } from "@reduxjs/toolkit";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logo from "./logo.png";
+import {logout} from "../../slides/authSlide"
 const Header = () => {
+  const dispatch = useDispatch();
+  const {user} = useSelector((state)=> state.auth)
+
+  const handleLogout = () => {
+    dispatch(logout());
+    alert("Bạn đã đăng xuất")
+  }
+
+const Logged = () =>{
+    return(
+    <div>
+      <Link to="/">Xin Chào {user.hoTen}</Link>
+      <Link className="mx-4" onClick={handleLogout}>ĐĂNG XUẤT</Link>
+      </div>
+    )
+}
+  const Nonlogged = () =>{
+    return(
+        <div>
+          <Link to="/signin"><i className="fa-solid fa-user"></i>ĐĂNG NHẬP/</Link>
+          <Link to="/signup">ĐĂNG KÝ</Link>
+        </div>
+      )
+  }
   return (
     <div className={styles.header}>
       <div className={styles.header__personal}>
@@ -20,9 +47,9 @@ const Header = () => {
           </Link>
           </li>
         <li>
-          <Link href="/"><i className="fa-solid fa-user"></i></Link>
-          <Link to="/signin">ĐĂNG NHẬP/</Link>
-          <Link to="/signup">ĐĂNG KÝ</Link>
+        {user ?<Logged/> : <Nonlogged/>}
+         
+          
         </li>
         </ul>
       </div>

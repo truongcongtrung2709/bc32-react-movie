@@ -16,7 +16,7 @@ import {useForm} from "react-hook-form"
 const Signup = () => {
   // const dispatch = useDispatch();
   const {register, handleSubmit, formState} = useForm({
-    defaultValues: { taiKhoan:"",matKhau:"", email:"", soDt:"", hoTen:""},
+    defaultValues: { taiKhoan:"",matKhau:"", email:"", soDt:"", hoTen:"" , maNhom: "GP01"},
     mode: "onTouched"
     });
 
