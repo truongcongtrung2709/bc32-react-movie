@@ -48,7 +48,7 @@ const Showing = () => {
       draggable={false}
       infinite={true}
       keyBoardControl={true}
-      customTransition="all .5"
+      customTransition="all .5s"
       >
       {movies.map((item) => (
         <Card className={styles.card} key={item.maPhim} >
@@ -69,7 +69,7 @@ const Showing = () => {
           </Card.ImgOverlay>
         </Card>
       ))} 
-</Carousel>;
+</Carousel>
 
     </div>
   );

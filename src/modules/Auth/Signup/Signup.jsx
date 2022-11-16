@@ -1,6 +1,8 @@
 import React from 'react'
-import {useDispatch} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 import {useForm} from "react-hook-form"
+import { signup } from '../../../slides/authSlide';
+import { Navigate, useSearchParams } from 'react-router-dom';
 /** 
   object đăng ký:
   {
@@ -14,9 +16,11 @@ import {useForm} from "react-hook-form"
   }
  */
 const Signup = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const {user, loading, error} = useSelector((state)=> state.auth)
+  const [searchParams, setSearchParams] =useSearchParams()
   const {register, handleSubmit, formState} = useForm({
-    defaultValues: { taiKhoan:"",matKhau:"", email:"", soDt:"", hoTen:"" , maNhom: "GP01"},
+    defaultValues: { taiKhoan:"",matKhau:"", email:"", soDt:"", hoTen:"" },
     mode: "onTouched"
     });
 
@@ -25,6 +29,11 @@ const Signup = () => {
 
     const onSubmit = (values) => {
       console.log(values);
+      dispatch(signup(values));
+    }
+    if(user){
+      const redirectUrl = searchParams.get("redirectUrl");
+      return <Navigate to={redirectUrl || "/"} replace/>;
     }
   return (
     <div>
@@ -98,7 +107,8 @@ const Signup = () => {
           {errors.hoTen && <span>{errors.hoTen.message}</span>}
         </div>
         
-        <button className='primary'>Đăng Ký</button>
+        <button disabled={loading} className='primary'>Đăng Ký</button>
+        {error && <span>{error}</span>}
       </form>
     </div>
   )

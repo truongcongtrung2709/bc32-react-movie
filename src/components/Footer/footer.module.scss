@@ -1,0 +1,22 @@
+.footer{
+
+  &__content{
+
+    &__contact{
+      display: flex;
+      justify-content: space-between;
+        &__item{
+
+          &__social{    
+              display: flex;
+              justify-content: space-between;
+              font-size: 25px;
+              margin-bottom: 10px;
+          }
+        }
+    }
+    &__company{
+      display: flex;
+    }
+  }
+}
