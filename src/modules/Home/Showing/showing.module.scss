@@ -4,19 +4,20 @@
   background-color: black;
   padding-top: 20px;
   
-.movie__tittle{
+&__tittle{
   color: white;
   text-align: center;
   background-color: black;
 
 }
-.card{
+&__card{
   border: none;
   position: relative;
   margin:10px;
   .overlay{
     display: none;
-
+    text-align: center;
+    padding-top: 80%;
   }
   &:hover .overlay{
     display: block;
@@ -29,6 +30,13 @@
 .item__title{
   color: white;
   font-weight: bold;
+}
+.item__detail{
+margin-top: 50%;
+    margin-bottom: 50%;
+}
+.item__ticket{
+
 }
   }
 }

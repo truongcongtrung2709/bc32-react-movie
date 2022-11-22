@@ -7,6 +7,8 @@ a{
   text-decoration: none;
   color: white;
   &:hover{
+    color: red;
+    transition: all 0.2s linear;
   }
 }
 li{

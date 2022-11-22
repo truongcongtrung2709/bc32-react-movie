@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {useForm} from 'react-hook-form'
 import fetcher from '../../services/fetcher'
 
@@ -9,7 +9,7 @@ import fetcher from '../../services/fetcher'
 // ngayKhoiChieu: phải đúng định dạng DD-MM-YYYY hh:mm:ss (08-12-2022)
 // hinhAnh: File
 const AddMovie = () => {
-    const {register, handleSubmit} = useForm({
+    const {register, handleSubmit, setValue } = useForm({
         defaultValues:{
             tenPhim:"",
             biDanh:"",
@@ -20,6 +20,8 @@ const AddMovie = () => {
             maNhomL:"",
         },
     })
+
+    const [imgPreview, setimgPreview] = useState(null)
     const onSubmit = async (values) =>{
         try {
             const payload = {...values, hinhAnh: values.hinhAnh[0], maNhom: "GP01"}
@@ -34,6 +36,24 @@ const AddMovie = () => {
     } catch (error) {
       console.log(error);
     }
+    }
+
+    const handleChangeImage = (evt) => {
+        // Nếu input là file để lấy đuược thông tin file mà user chọn ta dùng: evt.target.files
+        const file = evt.target.files[0];
+        if(!file) return;
+
+        //set value cho field hinhAnh của react-hook-form
+        setValue("hinhAnh", file)
+        
+        // Xử lý hiển thị hình ảnh preview ra cho user thấy
+        const  fileReader = new FileReader();
+        fileReader.readAsDataURL(file);
+        fileReader.onload = (evt) => {
+            // console.log(evt.target.result);
+            setimgPreview(evt.target.result);
+        }
+
     }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -60,7 +80,10 @@ const AddMovie = () => {
         </div>
         <div>
             <label>Hình Ảnh</label>
-            <input type="file" {...register("hinhAnh")}/>
+            {/* <input type="file" {...register("hinhAnh")}/> */}
+            <input type="file" onChange={handleChangeImage}  />
+            {imgPreview && (
+            <img src={imgPreview} width="300px" alt='preview'/>)}
         </div>
         <button>Thêm Phim</button>
     </form>

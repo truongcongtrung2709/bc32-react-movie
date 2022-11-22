@@ -5,6 +5,12 @@ import { Link } from "react-router-dom";
 import styles from "./Header.module.scss";
 import logo from "./logo.png";
 import {logout} from "../../slides/authSlide"
+//navbar
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Button, Form } from "react-bootstrap";
 const Header = () => {
   const dispatch = useDispatch();
   const {user} = useSelector((state)=> state.auth)
@@ -26,64 +32,47 @@ if(window.scrollY>200){
   })
 const Logged = () =>{
     return(
-    <div>
-      <Link to="/">Xin Chào {user.hoTen}</Link>
-      <Link className="mx-4" onClick={handleLogout}>Đăng Xuất</Link>
-      </div>
+    <Nav>
+      <Nav.Link href="/">Xin Chào {user.hoTen}</Nav.Link>
+      <Nav.Link className="mx-4" onClick={handleLogout}>Đăng Xuất</Nav.Link>
+      
+      </Nav>
     )
 }
   const Nonlogged = () =>{
     return(
-        <div>
-          <Link to="/signin">Đăng Nhập/</Link>
-          <Link to="/signup">Đăng Ký</Link>
-        </div>
+        <Nav>
+          <Nav.Link href="/signin">Đăng Nhập</Nav.Link>
+          <Nav.Link href="/signup">Đăng Ký</Nav.Link>
+        </Nav>
       )
   }
   return (
-    <div className={styles.header} style={headerColor ? {background:"transparent"}: {background:"black"}}>
-      <div className={`row ${styles.header__movies}`} >
-        <div className={`${styles.logo} col-3 row`}>
-          <Link to="/" className="col-6"><img src={logo} alt="" width="100px"/></Link>
-          <Link to="/" className={`col-6 ${styles.logo__text}`}><span>TCT Cine</span></Link>
-
-        </div> 
-        <ul className={`col-5 ${styles.header__movies__menu}`}>
-        <li><Link to="/">
-        Phim
-          </Link>
-          </li>
-          <li><Link to="/">
-        Lịch Chiếu
-          </Link>
-          </li>
-        <li><Link to="/">
-        Khuyến Mãi
-          </Link>
-          </li>
-        <li><Link to="/">
-        Tin Tức
-          </Link>
-          </li>
-        <li><Link href="/">
-          Giới Thiệu 
-          </Link>
-          </li>
-        <li><Link href="/">
-          Liên Hệ
-          </Link>
-          </li>
-        
-        </ul>
-        <div className={`${styles.account} col-4`}>
-        {user ?<Logged/> : <Nonlogged/>}
-          
-        </div>
-      </div>
-
-      <div>     
-      </div>
-    </div>
+    
+    <Navbar collapseOnSelect expand="lg" variant="dark" className={styles.header} style={headerColor ? {background:"transparent"}: {background:"black"}}>
+      
+        <Navbar.Brand href="/" className={styles.header__logo}>
+          <img src={logo} alt="" width="100px"/>
+          <span className={styles.header__logo__text}>TCT Cine</span>
+        </Navbar.Brand>
+        <Container>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className={`me-auto ${styles.menu}`}>
+            <Nav.Link href="/">Phim</Nav.Link>
+            <Nav.Link href="/">Lịch Chiếu</Nav.Link>
+            <Nav.Link href="/">Khuyến Mãi</Nav.Link>
+            <Nav.Link href="/">Tin Tức</Nav.Link>
+            <Nav.Link href="/">Giới Thiệu</Nav.Link>
+            <Nav.Link href="/">Liên Hệ</Nav.Link>
+              
+          </Nav>
+          <Nav>
+          {user ?<Logged/> : <Nonlogged/>}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

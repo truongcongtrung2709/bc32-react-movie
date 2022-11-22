@@ -13,6 +13,7 @@ const Showing = () => {
   const [movies, setMovies] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+
   const customStyles = {
     content: {
       top: '50%',
@@ -21,6 +22,7 @@ const Showing = () => {
       bottom: 'auto',
       marginRight: '-50%',
       transform: 'translate(-50%, -50%)',
+      width: '70%',
       
     },
     overlay:{
@@ -66,7 +68,7 @@ const Showing = () => {
   }
   return (
     <div className={styles.movieList}>
-       <h1 className={styles.movie__tittle}>MOVIE SELECTION</h1>
+       <h1 className={styles.movieList__tittle}>MOVIE SELECTION</h1>
       <Carousel  responsive={responsive}
       draggable={false}
       infinite={true}
@@ -74,34 +76,42 @@ const Showing = () => {
       customTransition="all .5s"
       >
       {movies.map((item) => (
-        <Card className={styles.card} key={item.maPhim} >
+        <Card className={styles.movieList__card} key={item.maPhim} >
           <Card.Img src={item.hinhAnh} alt={item.maPhim} width="100px" height="500px" />
         
           <Card.ImgOverlay className={styles.overlay}>
           
-          <Button variant="danger" onClick={openModal}>
-          <i className="fa-solid fa-play"></i>
+          <Button className={`${styles.item__trailer}`} variant="danger" onClick={openModal}>
+          <i className= "fa-solid fa-play"></i>
           </Button>
           
+           <Modal 
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          ariaHideApp={false}
+          style={customStyles}
+
+          >  
+              <ReactPlayer 
+              url={item.trailer}
+              width="100%" />
+
+           </Modal>
             <Card.Title className={styles.item__title}>{item.tenPhim}</Card.Title>
-            <Button variant="danger" onClick={() => navigate(`/movie/${item.maPhim}`)}>
+            <Button className={styles.item__detail} variant="danger" onClick={() => navigate(`/movie/${item.maPhim}`)}>
             Chi tiết
           </Button>
-          <Button variant="danger" >
+          <Button className={styles.item__ticket} variant="danger" >
           <i className="fa-solid fa-ticket"></i> Mua Vé
           </Button>
           </Card.ImgOverlay>
+          
         </Card>
       ))} 
+      {/*  */}
 </Carousel>
-<Modal
-          isOpen={isModalOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          controls="true"
-          >  
-              <ReactPlayer url="https://www.youtube.com/watch?v=3bA6tX6zpEY&ab_channel=DigitalDreams" />
-          </Modal>
+
+      
     </div>
   );
 };
