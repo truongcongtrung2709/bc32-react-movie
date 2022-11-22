@@ -15,7 +15,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <Carousel className="w-100">
+    <Carousel className= {`w-100 ${styles.banner}`}>
       {banners.map((item)=>(
     <Carousel.Item key={item.maBanner}>
       <img

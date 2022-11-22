@@ -5,7 +5,7 @@ import Showing from "./Showing";
 
 const Home = () => {
   return (
-    <div className="container">
+    <div>
       <Banner />
       <Showing />
       <Event/>

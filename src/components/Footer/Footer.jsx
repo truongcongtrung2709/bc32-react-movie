@@ -3,7 +3,7 @@ import styles from './footer.module.scss'
 import logo from '../Header/logo.png'
 const Footer = () => {
   return (
-    <div className={`my-5 ${styles.footer}`}>
+    <div className= {styles.footer}>
       <div className={`container ${styles.footer__content}`}>
         <div className={styles.footer__content__contact}>
         <div className={styles.footer__content__contact__item}>
@@ -48,8 +48,8 @@ const Footer = () => {
           </ul>
          </div>      
         </div>
-        <div className={`my-5 ${styles.footer__content__company}`}>
-          <img src={logo} alt="" width="150px" />
+        <div className={styles.footer__content__company}>
+          <img src={logo} alt="" width="200px" />
           <div className={styles.footer__content__company__info}>
             <h6>CÔNG TY TNHH TCT VIETNAM</h6>
             <p>Giấy CNĐKDN: 025518279, đăng ký lần đầu ngày 16/11/2022, cấp bởi Sở KHĐT thành phố Hồ Chí Minh.</p>

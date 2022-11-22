@@ -1,4 +1,12 @@
+h6{
+  color: white;
+  font-weight: bold;
+}
+p{
+  color: white;
+}
 .footer{
+  background-color: black;
 
   &__content{
 
@@ -11,11 +19,11 @@
               display: flex;
               justify-content: space-between;
               font-size: 25px;
-              margin-bottom: 10px;
           }
         }
     }
     &__company{
+      padding: 50px;
       display: flex;
     }
   }

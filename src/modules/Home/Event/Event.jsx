@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
 import  Carousel  from "react-multi-carousel";
+import styles from './event.module.scss'
 const Event = () => {
   const responsive = {
     superLargeDesktop:{
@@ -20,8 +21,8 @@ const Event = () => {
     }
   }
   return (
-    <div>
-      <h1 className='bg-warning text-center'>EVENT</h1>
+    <div className={styles.event}>
+      <h1 className={styles.event__title}>EVENT</h1>
       <Carousel
       responsive={responsive}
       draggable= {false}
@@ -29,27 +30,27 @@ const Event = () => {
       keyBoardControl={true}
       customTransition="all .5s"
       >
-       <Card>
+       <Card className={styles.card}>
         <Card.Img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/2/4/240x201_5_.jpg'
         />
         </Card> 
-        <Card>
+        <Card className={styles.card}>
         <Card.Img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/b/i/birthday_popcorn_box_240x201.png'
         />
         </Card> 
-        <Card>
+        <Card className={styles.card}>
         <Card.Img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/u/2/u22_2022_240x201.png'
         />
         </Card> 
-        <Card>
+        <Card className={styles.card}>
         <Card.Img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/h/a/happywednesday240x201_1.jpg'
         />
         </Card> 
-        <Card>
+        <Card className={styles.card}>
         <Card.Img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/c/u/culture-240_1.jpg'
         />

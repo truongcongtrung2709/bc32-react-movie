@@ -1,75 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+$fs-menu : 20px;
+
 @mixin adjust($display, $justify, $align )
 {
   display: $display;
   justify-content: $justify;
   text-align: $align;
-
 }
 
-
-
-
 .header {
-    &__personal
+  font-family: 'Kanit', sans-serif;
+  height: 100px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  transition: all 0.5s linear;
+
+    &__movies
     {
+    .logo{
+      position: relative;
+      &__text{
+        position: absolute;
+        font-size: $fs-menu;
+        top: 29px;
+        left: 90px;
+      }
+    }
+    
       &__menu{
-        @include adjust(flex, end, center);
+        @include adjust(flex, center, center);
+        align-items: center;
         li{
         margin-left: 40px;
         a{
-          color:black
         }
           }
       }
-    }
-    &__tickets__background{
-      background-color: white;
-
-      
-      .header__tickets__menu{
-        display: flex;
-        position: relative;
-        width: 1200px;
-        margin: 0 auto;
-        .logo{
-          transition: 0.5s linear;
-        }
-        .logo:hover{
-          opacity: 0.5;
-          transition: 0.5s linear;
-        }
-        
-        &__option{
-          position: absolute;
-          top: 40%;
-          left: 15%;
-         ul{
-          @include adjust(flex, end, center);
-          li{
-            margin-left: 150px;
-
-            a{
-              color:black;
-              font-weight: bold;
-              &::after{
-                content: '';
-                display: block;
-                width: 0;
-                height: 2px;
-                background: black;
-                transition: width .3s linear;
-              }
-            }
-            &:hover a::after{
-              width:70%;
-              margin: 0 auto;
-              transition: width .3s linear;
-            }
-          }
-        }
-        }
+      .account{
+        @include adjust(flex, end, center);
+        align-items: center;
       }
     }
-}
-  
+  }
   

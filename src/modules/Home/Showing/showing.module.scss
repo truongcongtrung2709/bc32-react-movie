@@ -1,9 +1,14 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+.movieList{
+  font-family: 'Noto Serif', serif;
+  background-color: black;
+  padding-top: 20px;
+  
 .movie__tittle{
+  color: white;
   text-align: center;
-  background-color: yellow;
-  margin-top: 50px;
+  background-color: black;
+
 }
 .card{
   border: none;
@@ -11,6 +16,7 @@
   margin:10px;
   .overlay{
     display: none;
+
   }
   &:hover .overlay{
     display: block;
@@ -18,9 +24,12 @@
     height: 100%;
     position: absolute;
     background: rgba(0,0,0,0.5);
+
+
 .item__title{
   color: white;
   font-weight: bold;
 }
   }
+}
 }

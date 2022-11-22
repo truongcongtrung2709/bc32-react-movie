@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+.event{
+  font-family: 'Noto Serif', serif;
+  background-color: black;
+  padding-bottom: 70px;
+  &__title{
+    color: white;
+    text-align: center;
+    background-color: black;
+  }
+  .card{
+    padding:10px;
+    background-color: black;
+  }
+}
