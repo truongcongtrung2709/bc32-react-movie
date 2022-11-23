@@ -28,3 +28,57 @@ p{
     }
   }
 }
+@media screen  and (max-width: 576px) {
+  .footer{
+    padding-top:20px;
+    &__content{
+  
+      &__contact{
+      font-size:10px;
+
+          &__item{
+            .veti{
+              width:100px;
+            }
+            &__social{  
+              font-size: 15px;  
+            }
+          }
+      }
+      &__company{
+        font-size: 10px;
+        padding: 0; 
+        img{
+          width: 150px;
+        }
+      }
+    }
+  }
+}
+@media screen  and (max-width: 756px) {
+  .footer{
+    padding-top:20px;
+    &__content{
+  
+      &__contact{
+      font-size:10px;
+
+          &__item{
+            .veti{
+              width:100px;
+            }
+            &__social{  
+              font-size: 15px;  
+            }
+          }
+      }
+      &__company{
+        font-size: 10px;
+        padding: 0; 
+        img{
+          width: 150px;
+        }
+      }
+    }
+  }
+}

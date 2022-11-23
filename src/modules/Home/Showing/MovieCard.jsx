@@ -11,7 +11,7 @@ const MovieCard = ({movie}) => {
   
   return (
     <Card className={styles.movieList__card} >
-          <Card.Img src={movie.hinhAnh} alt={movie.maPhim} width="100px" height="500px" />
+          <Card.Img className={styles.movieList__card__img} src={movie.hinhAnh} alt={movie.maPhim} width="100px" height="300px" />
         
           <Card.ImgOverlay className={styles.overlay}>
           
@@ -19,14 +19,12 @@ const MovieCard = ({movie}) => {
           <i className= "fa-solid fa-play"></i>
           </Button>
           <Modal
-          
             centered
             show={isModalOpen}
             onHide={() => setIsModalOpen(false)}
             size="lg"
             aria-labelledby="example-modal-sizes-title-lg">
             <ReactPlayer width="100%" height="500px" url={movie.trailer} controls/>
-            {console.log(movie.trailer)}
           </Modal>
             <Card.Title className={styles.movie__title}>{movie.tenPhim}</Card.Title>
             <Button className={styles.movie__detail} variant="danger" onClick={() => navigate(`/movie/${movie.maPhim}`)}>

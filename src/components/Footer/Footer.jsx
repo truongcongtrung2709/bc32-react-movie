@@ -6,7 +6,7 @@ const Footer = () => {
     <div className= {styles.footer}>
       <div className={`container ${styles.footer__content}`}>
         <div className={styles.footer__content__contact}>
-        <div className={styles.footer__content__contact__item}>
+        <div className={`col-3 ${styles.footer__content__contact__item}`}>
           <ul>
             <h6>TCT Việt Nam</h6>
             <li><a href="/">Giới Thiệu</a></li>
@@ -16,7 +16,7 @@ const Footer = () => {
             <li><a href="/">Liên Hệ Quảng Cáo CGV</a></li>
           </ul>
         </div>
-        <div className={styles.footer__content__contact__item}>
+        <div className={`col-3 ${styles.footer__content__contact__item}`}>
           
           <ul>
             <h6>Điều khoản sử dụng</h6>
@@ -27,7 +27,7 @@ const Footer = () => {
             <li><a href="/">Câu Hỏi Thường Gặp</a></li>
           </ul>
         </div>
-        <div className={styles.footer__content__contact__item}>
+        <div className={`col-3 ${styles.footer__content__contact__item}`}>
           <ul>
             <h6>Kết nối với chúng tôi</h6>
             <div className={styles.footer__content__contact__item__social}>
@@ -36,10 +36,10 @@ const Footer = () => {
             <li><a href="/"><i className="fa-brands fa-square-instagram"></i></a></li>
             <li><a href="/"><i className="fa-brands fa-twitter"></i></a></li>
             </div>
-            <img src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png" alt="" width="150px" />
+            <img className={styles.veti} src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png" alt="" width="150px" />
           </ul>
         </div>
-        <div className={styles.footer__content__contact__item}>
+        <div className={`col-3 ${styles.footer__content__contact__item}`}>
           <ul>
             <h6>Chăm Sóc Khách Hàng</h6>
             <li><a href="/">Hotline: 0778046560</a></li>

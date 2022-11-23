@@ -3,7 +3,8 @@
   font-family: 'Noto Serif', serif;
   background-color: black;
   padding-top: 20px;
-  
+  width: 90%;
+  margin: 0 auto;
 &__title{
   color: white;
   text-align: center;
@@ -14,10 +15,13 @@
   border: none;
   position: relative;
   margin:10px;
+  &__img{
+    object-fit:cover;
+  }
   .overlay{
     display: none;
     text-align: center;
-    padding-top: 50%;
+    padding-top: 10%;
   }
   &:hover .overlay{
     display: block;
@@ -38,5 +42,4 @@
   }
 }
 }
-
 

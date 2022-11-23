@@ -1,62 +1,85 @@
 import React from 'react'
 import { Card } from 'react-bootstrap';
-import  Carousel  from "react-multi-carousel";
 import styles from './event.module.scss'
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 const Event = () => {
-  const responsive = {
-    superLargeDesktop:{
-      breakpoint: {max: 4000, min: 3000},
-      items:8
-    },
-    desktop:{
-      breakpoint:{max: 3000, min: 1024},
-      items:5
-    },
-    tablet:{
-      breakpoint:{max: 1024, min:464},
-      item: 2
-    },
-    mobile:{
-      breakpoint:{max: 464, min:0}
-    }
-  }
+  var settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    initalSlide: 0,
+    accessibility: true,
+    focusOnSelect: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
+    
     <div className={styles.event}>
       <h1 className={styles.event__title}>EVENT</h1>
-      <Carousel
-      responsive={responsive}
-      draggable= {false}
-      infinite= {true}
-      keyBoardControl={true}
-      customTransition="all .5s"
+      <Slider {...settings} 
+      className={styles.event__list}
       >
-       <Card className={styles.card}>
-        <Card.Img
+       <div className={styles.card}>
+        <img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/2/4/240x201_5_.jpg'
+        alt=''
         />
-        </Card> 
-        <Card className={styles.card}>
-        <Card.Img
+        </div> 
+        <div className={styles.card}>
+        <img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/b/i/birthday_popcorn_box_240x201.png'
+        alt=''
         />
-        </Card> 
-        <Card className={styles.card}>
-        <Card.Img
+        </div> 
+        <div className={styles.card}>
+        <img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/u/2/u22_2022_240x201.png'
+        alt=''
         />
-        </Card> 
-        <Card className={styles.card}>
-        <Card.Img
+        </div> 
+        <div className={styles.card}>
+        <img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/h/a/happywednesday240x201_1.jpg'
+        alt=''
         />
-        </Card> 
-        <Card className={styles.card}>
-        <Card.Img
+        </div> 
+        <div className={styles.card}>
+        <img
         src='https://www.cgv.vn/media/banner/cache/1/b58515f018eb873dafa430b6f9ae0c1e/c/u/culture-240_1.jpg'
+        alt=''
         />
-        </Card> 
+        </div> 
 
-      </Carousel>
+      </Slider>
     </div>
   )
 }
