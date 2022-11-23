@@ -4,7 +4,7 @@
   background-color: black;
   padding-top: 20px;
   
-&__tittle{
+&__title{
   color: white;
   text-align: center;
   background-color: black;
@@ -17,7 +17,7 @@
   .overlay{
     display: none;
     text-align: center;
-    padding-top: 80%;
+    padding-top: 50%;
   }
   &:hover .overlay{
     display: block;
@@ -27,17 +27,16 @@
     background: rgba(0,0,0,0.5);
 
 
-.item__title{
+.movie__title{
   color: white;
   font-weight: bold;
 }
-.item__detail{
-margin-top: 50%;
+.movie__detail{
+    margin-top: 50%;
     margin-bottom: 50%;
-}
-.item__ticket{
-
 }
   }
 }
 }
+
+

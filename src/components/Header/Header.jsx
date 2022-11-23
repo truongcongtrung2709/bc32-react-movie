@@ -32,16 +32,16 @@ if(window.scrollY>200){
   })
 const Logged = () =>{
     return(
-    <Nav>
+    <Nav className={` ${styles.account}`}>
       <Nav.Link href="/">Xin Chào {user.hoTen}</Nav.Link>
-      <Nav.Link className="mx-4" onClick={handleLogout}>Đăng Xuất</Nav.Link>
+      <Nav.Link onClick={handleLogout}>Đăng Xuất</Nav.Link>
       
       </Nav>
     )
 }
   const Nonlogged = () =>{
     return(
-        <Nav>
+        <Nav className={` ${styles.account}`}>
           <Nav.Link href="/signin">Đăng Nhập</Nav.Link>
           <Nav.Link href="/signup">Đăng Ký</Nav.Link>
         </Nav>
@@ -55,7 +55,6 @@ const Logged = () =>{
           <img src={logo} alt="" width="100px"/>
           <span className={styles.header__logo__text}>TCT Cine</span>
         </Navbar.Brand>
-        <Container>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className={`me-auto ${styles.menu}`}>
@@ -65,13 +64,9 @@ const Logged = () =>{
             <Nav.Link href="/">Tin Tức</Nav.Link>
             <Nav.Link href="/">Giới Thiệu</Nav.Link>
             <Nav.Link href="/">Liên Hệ</Nav.Link>
-              
           </Nav>
-          <Nav>
           {user ?<Logged/> : <Nonlogged/>}
-          </Nav>
         </Navbar.Collapse>
-      </Container>
     </Navbar>
   );
 };
