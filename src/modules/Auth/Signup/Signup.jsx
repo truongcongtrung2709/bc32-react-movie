@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux"
 import {useForm} from "react-hook-form"
 import { signup } from '../../../slides/authSlide';
 import { Navigate, useSearchParams } from 'react-router-dom';
+import styles from "./signup.module.scss";
 /** 
   object đăng ký:
   {
@@ -36,10 +37,10 @@ const Signup = () => {
       return <Navigate to={redirectUrl || "/"} replace/>;
     }
   return (
-    <div>
-      <h1>Signup</h1>
+    <div className={styles.signup__content}>
+      <h1>Đăng Ký</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className={styles.inputForm}>
           <label>Tài Khoản:</label>
           <input type="text" {...register("taiKhoan",{required:{
             value:true,
@@ -53,9 +54,9 @@ const Signup = () => {
               message: "Tài khoản phải từ 5 tới 20 kí tự"
             }
           })} />
-          {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
+          {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
         </div>
-        <div>
+        <div className={styles.inputForm}>
           <label>Mật Khẩu:</label>
           <input type="password" {...register("matKhau",{required:{
             value:true,
@@ -71,25 +72,25 @@ const Signup = () => {
           },
 
           })} />
-          {errors.matKhau && <span>{errors.matKhau.message}</span>}
+          {errors.matKhau && <p>{errors.matKhau.message}</p>}
         </div>
-        <div>
+        <div className={styles.inputForm}>
           <label>Email:</label>
           <input type="email" {...register("email",{required:{
             value:true,
             message: "Email không được để trống"
           }})}/>
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <p>{errors.email.message}</p>}
         </div>
-        <div>
+        <div className={styles.inputForm}>
           <label>Số Điện Thoại:</label>
           <input type="number" {...register("soDt",{required:{
             value:true,
             message: "số điện thoại không được để trống"
           }})}/>
-          {errors.soDt && <span>{errors.soDt.message}</span>}
+          {errors.soDt && <p>{errors.soDt.message}</p>}
         </div>
-        <div>
+        <div className={styles.inputForm}>
           <label>Họ Tên:</label>
           <input type="text" {...register("hoTen",{required:{
             value:true,
@@ -104,11 +105,12 @@ const Signup = () => {
             message: "Họ và tên phải từ 5 tới 20 kí tự"
           },
           })} />
-          {errors.hoTen && <span>{errors.hoTen.message}</span>}
+          {errors.hoTen && <p>{errors.hoTen.message}</p>}
         </div>
-        
-        <button disabled={loading} className='primary'>Đăng Ký</button>
-        {error && <span>{error}</span>}
+        <div className={styles.signup__button}>
+        <button  disabled={loading} className="btn btn-danger">Đăng Ký</button>
+        {error && <p>{error}</p>}
+        </div>
       </form>
     </div>
   )

@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import { useSelector, useDispatch } from "react-redux";
 import { signin } from "../../../slides/authSlide";
 import { Navigate, useSearchParams } from "react-router-dom";
+import styles from "./signin.module.scss";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
 
 
 /**
@@ -46,11 +49,12 @@ const Signin = () => {
         return <Navigate to={redirectUrl || "/"} replace/>
     }
 
-  return <div>
-    <h1>Signin</h1>
-    <form onSubmit={handleSubmit(onSubmit)} >
-        <div>
-            <label>Tài Khoản</label>
+  return( 
+  <div className={styles.signin__content}>
+    <h1>Đăng Nhập</h1>
+    <form onSubmit={handleSubmit(onSubmit)}  >
+        <div className={styles.inputForm}>
+            <label>Tài Khoản:</label>
             <input {...register("taiKhoan",
             {required:{
                 value:true,
@@ -64,9 +68,9 @@ const Signin = () => {
             })}  />
             {/* {errors.taiKhoan?.type === 'required' && <span>Tài khoản không được để trống</span>}
             {["minLength", "maxLength"].includes(errors.taiKhoan?.type) && <span> Tài khoản phải từ 5 tới 20 kí tự</span>} */}
-            {errors.taiKhoan && <span>{errors.taiKhoan.message}</span>}
+            {errors.taiKhoan && <p>{errors.taiKhoan.message}</p>}
         </div>
-        <div>
+        <div className={styles.inputForm}>
             <label>Mật Khẩu:</label>
             <input type="password" {...register("matKhau",
             {required:{
@@ -80,13 +84,16 @@ const Signin = () => {
                 message:"Mật Khẩu phải từ 5 tới 20 kí tự"},
             })}  />
             {/* {errors.matKhau && <span>Mật Khẩu không được để trống</span>} */}
-            {errors.matKhau && <span>{errors.matKhau.message}</span>}
+            {errors.matKhau && <p>{errors.matKhau.message}</p>}
             
         </div>
-        <button disabled={loading}>Đăng Nhập</button>
+        <div className={styles.signin__button}>
+        <button className="btn btn-danger" disabled={loading}>Đăng Nhập</button>
         {error && <p>{error}</p>}
+        </div>
     </form>
-  </div>;
+  </div>
+  )
 };
 
 export default Signin;

@@ -42,8 +42,8 @@ const Logged = () =>{
   const Nonlogged = () =>{
     return(
         <Nav className={` ${styles.account}`}>
-          <Nav.Link href="/signin">Đăng Nhập</Nav.Link>
-          <Nav.Link href="/signup">Đăng Ký</Nav.Link>
+          <Nav.Link href="/account/signin">Đăng Nhập</Nav.Link>
+          <Nav.Link href="/account/signup">Đăng Ký</Nav.Link>
         </Nav>
       )
   }
